@@ -1,0 +1,18 @@
+#list {
+  font-size: 24px;
+  margin-top: 50px;
+}
+
+.note {
+  font-family: fantasy;
+}
+
+.notesTitle {
+  text-align: center;
+  font-family: fantasy;
+}
+
+.theList {
+  text-align: center;
+  list-style-type: none;
+}
