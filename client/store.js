@@ -1,17 +1,35 @@
 // Redux Store //
 const Redux = require('redux')
 
-function reducer(state= {notes: ['Make sure to Catch a Promise', 'Unlinked files are lost files!', 'Map returns a NEW array'] }, action) {
+// notes reducer//
+function notes(state= ['Make sure to Catch a Promise', 'Unlinked files are lost files!', 'Map returns a NEW array'] , action) {
   switch(action.type) {
-    case 'ADD_NOTE':
-    return state.concat(action.text)
-    case 'DELETE_NOTES':
-    return []
+    case 'NOTE_CREATED':
+      return state.concat(action.text)
     default:
-    return state
+      return state
   }
 }
+
+// noteInput reducer //
+function noteInput(state = '', action) {
+  switch(action.type) {
+    case 'INPUT_CHANGED':
+      return action.text
+    case 'NOTE_CREATED':
+      return ''
+    default:
+      return state
+  }
+}
+// reducers combined //
+const reducer = Redux.combineReducers({
+  notes: notes,
+  noteInput: noteInput
+})
 
 const store = Redux.createStore(reducer)
 
 module.exports = store
+
+window.store = store

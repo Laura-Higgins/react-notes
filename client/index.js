@@ -2,11 +2,16 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const store = require('./store')
 const NotesList = require('./notes-list')
+const NoteForm = require('./note-form')
 
 
 // rending to DOM with ReactDOM //
-const state = store.getState()
-const list = React.createElement(NotesList, state )
-const $app = document.querySelector('#list')
+const reRender = function() {
+  const state = store.getState()
+  const $NotesList = <NotesList notes={state.notes}noteInput={state.noteInput}/> 
+  const $app = document.querySelector('#list')
 
-ReactDOM.render(list, $app)
+  ReactDOM.render($NotesList, $app)
+}
+reRender()
+store.subscribe(reRender)
