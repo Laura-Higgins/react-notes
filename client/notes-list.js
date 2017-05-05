@@ -1,17 +1,19 @@
 // react Component NotesList //
 const React = require('react')
+const NoteForm = require('./note-form')
 
 function NotesList(props) {
   return (
     <div>
-    <h1 className="notesTitle">Notes:</h1>
-    <ul className="theList">
-    {
-      props.notes.map( function(note) {
-      return <li className="note">{note}</li>
-      })
-    }
-    </ul>
+      <NoteForm noteInput={props.noteInput}/>
+      <h1 className="notesTitle">Notes:</h1>
+      <ul className="theList">
+      {
+        props.notes.map( function(note) {
+          return <li className="note">{note}</li>
+        })
+      }
+      </ul>
     </div>
   )
 }
