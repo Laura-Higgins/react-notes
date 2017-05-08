@@ -10,7 +10,7 @@ function NotesList(props) {
       <ul className="theList">
       {
         props.notes.map( function(note) {
-          return <li className="note">{note}</li>
+          return <li className="note" key={note}>{note}</li>
         })
       }
       </ul>

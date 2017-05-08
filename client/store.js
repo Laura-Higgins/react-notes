@@ -31,5 +31,3 @@ const reducer = Redux.combineReducers({
 const store = Redux.createStore(reducer)
 
 module.exports = store
-
-window.store = store
